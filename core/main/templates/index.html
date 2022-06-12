@@ -1,0 +1,306 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+
+    
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+        <div class="swiper-wrapper">
+            {% for i in homes %}
+            <div class="swiper-slide">
+                <div class="box" style="background: url("{{ 'i.homeBackgroundImg' }}") no-repeat;">
+                    <div class="content">
+                        <span>{{ i.homeBackgroundName }}</span>
+                        <h3>{{ i.homeBackgroundComment }}</h3>
+                        <p>{{ i.homeBackgroundAbout }}</p>
+                        <a href="#" class="btn">get started</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+           
+
+            
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- category section starts  -->
+<section class="book-form" id="book-form">
+
+    <form action="">
+        <div  class="inputBox">
+            <span>where to?</span>
+            <input type="text" placeholder="place name" value="">
+        </div>
+        <div class="inputBox">
+            <span>when?</span>
+            <input type="date" value="">
+        </div>
+        <div class="inputBox">
+            <span>how many?</span>
+            <input type="number" placeholder="number of travelers" value="">
+        </div>
+        <input type="submit" value="find now" class="btn">
+    </form>
+
+</section>
+<section class="category">
+
+    <h1 class="heading">Արկածային տուրիզմի գաղափարներ</h1>
+    <div class="box-container">
+        {% for j in tours %}
+
+        <div class="box">
+            <img src="{{ j.img.url }}" alt="">
+            <h3>{{ j.name }}</h3>
+            <p>{{ j.comment }}</p>
+            <a href="blog.html" class="btn">կարդալ ավելին</a>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- category section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+    {% for x in abouts %}
+
+    <div class="image">
+        <img src="{{ x.img.url }}" alt="">
+    </div>
+    <div class="content">
+        <h3>{{ x.name }}</h3>
+        <p>{{ x.comment }}</p>
+        
+        <a href="aboutus.html" class="btn">Կարդալ ավելին</a>
+    </div>
+    {% endfor %}
+</section>
+
+<!-- about section ends -->
+
+<!-- shop section starts  -->
+
+<section class="shop" id="shop">
+
+    <h1 class="heading">Առաջարկվող տուրիստական ապրանքներ</h1>
+
+    <div class="swiper product-slider">
+
+        <div class="swiper-wrapper">
+            {% for u in tinks %}
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="{{ u.img.url }}" alt="">
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                        <a href="#" class="fas fa-share"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>{{ u.name }}</h3>
+                    <div class="price"> {{ u.price }} AMD</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}          
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+<!-- shop section ends -->
+
+<!-- packages section starts  -->
+
+
+<section class="blogs" id="blogs">
+
+    <h1 class="heading"> Թերթիր և ամրագրիր  </h1>
+    <h1>esi chi bacum </h1>
+    {% for y in books1 %}
+    <div class="swiper blogs-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide">
+                <img src="{{ y.img.url }}" alt="">
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-calendar"></i> Book now</a>
+                   
+                </div>
+                <h3>{{ y.name }}</h3>
+                <p>{{ y.about }}</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+
+</section>
+
+
+<!-- packages section ends -->
+
+<!-- reviews section starts  -->
+
+<section class="reviews" id="reviews">
+
+    <h1 class="heading">Կարծիքներ</h1>
+
+    <div class="swiper review-slider">
+        <div class="swiper-wrapper">
+            {% for n in commentsCustomer %}
+
+            <div class="swiper-slide slide">
+                <p class="text">{{ n.customerComment }}</p>
+                <div class="user">
+                    <img src="{{ n.customerImg.url  }}" alt="">
+                    <div class="info">
+                        <h3>{{ n.customerName }}</h3>
+                        <span>{{ n.customerProfession }}</span>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+</section>
+
+<!-- reviews section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <div class="heading">
+
+        <h3>Մեր ծառայությունները</h3>
+    </div>
+    <div class="box-container">
+    {% for h in ourServices1  %}
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <i class="fas fa-globe"></i>
+            <h3>{{ h.name }}</h3>
+            <p>{{ h.about }}</p>
+        </div>
+    {% endfor %}
+
+    </div>
+
+</section>
+
+
+<!-- services section ends -->
+
+<!-- next trip  -->
+
+<section class="blogs" id="blogs">
+
+    <h1 class="heading"> Ընտրեք հաջորդ ճանապարհորդության վայրը </h1>
+
+    <div class="swiper blogs-slider">
+
+        <div class="swiper-wrapper">
+            {% for w in nextTravels %}
+            <div class="swiper-slide slide">
+                <img src="{{ w.img.url }}" alt="">
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-calendar"></i> book now </a>
+                   
+                </div>
+                <h3>{{ w.name }}</h3>
+                <p>{{ w.about }}</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- blogs section ends -->
+
+<!-- newsletter section  -->
+<section id="contact" class="contact">
+
+    <h1 class="heading"> <span> c</span>ontact <span>u</span>s</h1>
+    
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12192.59126886825!2d44.507659936256665!3d40.183523720284704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abcfaeabab397%3A0x820d1439a31fd75!2sArmenia%20Travel!5e0!3m2!1sru!2s!4v1646044393963!5m2!1sru!2s" 
+width="100%" height="350" style="border:0;" outline:none; allowfullscreen="" loading="lazy"
+
+></iframe>
+
+</section>
+
+<!-- <div class="row">
+    <div class="contact-info">
+        <div class="box">
+            
+        </div>
+    </div>
+</div> -->
+
+<section class="newsletter">
+    {% for r in subscirbe %}
+    <div class="content">
+        <h1 class="heading">subscirbe now</h1>
+        <p>{{ r.about}}</p>
+        <form action="">
+            <input type="email" name="" placeholder="enter your email" id="" class="email">
+            <input type="submit" value="subscirbe" class="btn">
+        </form>
+    </div>
+    {% endfor %}
+
+</section>
+
+
+{% endblock %}
+
+
+
+
+
+{% block js %}
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
