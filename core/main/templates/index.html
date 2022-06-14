@@ -14,14 +14,14 @@
 
     <div class="swiper home-slider">
         <div class="swiper-wrapper">
-            {% for i in homes %}
+            {% for home in homes %}
             <div class="swiper-slide">
-                <div class="box" style="background: url("{{ 'i.homeBackgroundImg' }}") no-repeat;">
+                <div class="box" style="background: url('{{ i.homeBackgroundImg.url }}') no-repeat;">
                     <div class="content">
-                        <span>{{ i.homeBackgroundName }}</span>
-                        <h3>{{ i.homeBackgroundComment }}</h3>
-                        <p>{{ i.homeBackgroundAbout }}</p>
-                        <a href="#" class="btn">get started</a>
+                        <span>{{ home.homeBackgroundName }}</span>
+                        <h3>{{ home.homeBackgroundComment }}</h3>
+                        <p>{{ home.homeBackgroundAbout }}</p>
+                        <a href="{% url 'index_detail' home.id %}" class="btn">get started</a>
                     </div>
                 </div>
             </div>
@@ -65,13 +65,13 @@
 
     <h1 class="heading">Արկածային տուրիզմի գաղափարներ</h1>
     <div class="box-container">
-        {% for j in tours %}
+        {% for tour in tours %}
 
         <div class="box">
-            <img src="{{ j.img.url }}" alt="">
-            <h3>{{ j.name }}</h3>
-            <p>{{ j.comment }}</p>
-            <a href="blog.html" class="btn">կարդալ ավելին</a>
+            <img src="{{ tour.img.url }}" alt="">
+            <h3>{{ tour.name }}</h3>
+            <p>{{ tour.comment }}</p>
+            <a href="{% url 'index_detail_tours' tour.id %}" class="btn">կարդալ ավելին</a>
         </div>
 
         {% endfor %}
@@ -94,7 +94,7 @@
         <h3>{{ x.name }}</h3>
         <p>{{ x.comment }}</p>
         
-        <a href="aboutus.html" class="btn">Կարդալ ավելին</a>
+        <a href="{% url 'aboutus' %}" class="btn">Կարդալ ավելին</a>
     </div>
     {% endfor %}
 </section>
@@ -110,19 +110,19 @@
     <div class="swiper product-slider">
 
         <div class="swiper-wrapper">
-            {% for u in tinks %}
+            {% for tink in tinks %}
             <div class="swiper-slide slide">
                 <div class="image">
-                    <img src="{{ u.img.url }}" alt="">
+                    <img src="{{ tink.img.url }}" alt="">
                     <div class="icons">
                         <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
+                        <a href="{% url 'tinks_detail' tink.id %}" class="fas fa-eye"></a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>{{ u.name }}</h3>
-                    <div class="price"> {{ u.price }} AMD</div>
+                    <h3>{{ tink.name }}</h3>
+                    <div class="price"> {{ tink.price }} AMD</div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -152,7 +152,7 @@
 
     <h1 class="heading"> Թերթիր և ամրագրիր  </h1>
     <h1>esi chi bacum </h1>
-    {% for y in books1 %}
+    {% for y in books %}
     <div class="swiper blogs-slider">
         <div class="swiper-wrapper">
             <div class="swiper-slide slide">
@@ -239,16 +239,16 @@
     <div class="swiper blogs-slider">
 
         <div class="swiper-wrapper">
-            {% for w in nextTravels %}
+            {% for nextTravel in nextTravels %}
             <div class="swiper-slide slide">
-                <img src="{{ w.img.url }}" alt="">
+                <img src="{{ nextTravel.img.url }}" alt="">
                 <div class="icons">
                     <a href="#"> <i class="fas fa-calendar"></i> book now </a>
                    
                 </div>
-                <h3>{{ w.name }}</h3>
-                <p>{{ w.about }}</p>
-                <a href="#" class="btn">read more</a>
+                <h3>{{ nextTravel.name }}</h3>
+                <p>{{ nextTravel.about }}</p>
+                <a href="{% url 'next_travel_detail' nextTravel.id %}" class="btn">read more</a>
             </div>
             {% endfor %}
 
@@ -285,10 +285,12 @@ width="100%" height="350" style="border:0;" outline:none; allowfullscreen="" loa
     <div class="content">
         <h1 class="heading">subscirbe now</h1>
         <p>{{ r.about}}</p>
+        <a href="{% url 'login' %}">
         <form action="">
             <input type="email" name="" placeholder="enter your email" id="" class="email">
-            <input type="submit" value="subscirbe" class="btn">
+           
         </form>
+        </a>
     </div>
     {% endfor %}
 

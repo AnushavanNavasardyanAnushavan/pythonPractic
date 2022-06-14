@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+    <!-- home section stars  -->
+{% block content %}
+    <section class="home" id="home">
+        {% for m in aboutusPage1st %}
+        <div class="content">
+            <h1>Մենք ճանապարհորդելը հասանելի ենք դարձնում բոլորի համար</h1>
+            <p>{{ m.abouts }}</p>
+
+        
+        </div>
+
+        <div class="image">
+            <img src="{{ m.img.url }}" alt="illustration-hero">
+        </div>
+        {% endfor %}
+    </section>
+
+
+    <!-- home section ends -->
+
+    <!-- features sectin starts  -->
+
+    <section class="features" id="features">
+      
+
+        <div class="row">
+            <!-- 1 Tab  -->
+            {% for j in aboutusPage2th %}
+            <div class="image">
+                <img src="{{ j.img2.url }}" alt="illustration-features-tab-1">
+            </div>
+
+
+            <div class="content">
+                <h1>{{ j.header2 }}</h1>
+                <p>{{ j.abouts2 }}</p>
+  
+            </div>
+            {% endfor %}
+
+            <!-- 1 Tab  -->
+
+            <!-- 2 Tab  -->
+            {% for k in aboutusPage3th %}
+            <div class="content">
+                <h1>{{ k.header3 }}</h1>
+                <p>{{ k.abouts3 }}</p>
+           
+            </div>
+
+            <div class="image">
+                <img src="{{ k.img3.url }}" alt="illustration-features-tab-2">
+            </div>
+            {% endfor %}
+
+            
+
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block js%}
+    <script src="{% static 'js/about.js' %}"></script>
+{% endblock %}

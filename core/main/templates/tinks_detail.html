@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1>Առաջարկվող իրերի էջի մասին տեղեկություն</h1>
+    <h1>{{ tink.name }}</h1>
+    <h3> {{ tink.price }} AMD</h3>
+    <img src="{{ tink.img.url }}" width="650px" alt="">
+    <a href="{% url 'index' %}"><button>HOME PAGE</button></a>
+    
+{% endblock %}

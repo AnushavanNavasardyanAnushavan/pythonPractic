@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+        <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
+    
+
+{% block content%}
+    
+   
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+            {% for y in blogs %}
+
+            <div class="swiper-slide">
+                <div class="box" style="background:url('{{ y.img.url }}') no-repeat;">
+                    <div class="content">
+                       
+                        <h3>{{ y.name }}</h3>
+                     
+                        <a href="#" class="btn">get started</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+    <!--blog section -->
+    
+    
+<section class="services" id="services">
+
+    <div class="boxx-container">
+        {% for blogPageToSupport in blogPageToSupports %}
+        <div class="boxx">
+            <img src="{{ blogPageToSupport.img.url }}" alt="" width="90%">
+            <h3>{{ blogPageToSupport.name }}</h3>
+            <p>{{ blogPageToSupport.about }}</p>
+            <a href="{% url 'blog_page_detail'  blogPageToSupport.id  %}" class="btn">Կարդալ ավելին</a>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+
+</section>
+
+{% endblock %}
+
+  
+{% block js%}
+    <script src="{% static 'js/blog.js' %}"></script>
+{% endblock %}
+

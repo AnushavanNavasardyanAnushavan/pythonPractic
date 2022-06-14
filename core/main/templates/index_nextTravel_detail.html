@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1>NEXT TRAVEL-ի էջի մասին տեղեկություն</h1>
+    <img src="{{ nextTravel.img.url }}" width="1080px" alt="">
+
+    <h3>{{ nextTravel.name }}</h3>
+    <p>{{ nextTravel.about }}</p>
+    <a href="{% url 'index' %}"><button>HOME PAGE</button></a>
+    
+{% endblock %}

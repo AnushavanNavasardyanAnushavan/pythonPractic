@@ -1,0 +1,11 @@
+
+
+
+{% block content %}
+
+    <h1>Արկածային տուրիզմի գաղափարներ  մասին տեղեկություն</h1>
+    <h3>{{ tour.comment }}</h3>
+    <img src="{{ tour.img.url }}" width="350px" alt="">
+    <a href="{% url 'index' %}"><button>HOME PAGE</button></a>
+   
+{% endblock %}

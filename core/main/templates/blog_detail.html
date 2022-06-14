@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+    <h1>BLOG DETAIL-ի էջի մասին տեղեկություն</h1>
+    <h3>{{ blogPageToSupport.name }}</h3>
+    <p>{{ blogPageToSupport.about }}</p>
+    <a href="{% url 'index' %}"><button>HOME PAGE</button></a>
+
+
+   
+{% endblock %}

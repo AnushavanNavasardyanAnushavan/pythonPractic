@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <h1>HOME էջի մասին տեղեկություն</h1>
+    <h3>{{ home.homeBackgroundAbout }}</h3>
+    <img src="{{ home.homeBackgroundImg.url }}" width="350px" alt="">
+    <a href="{% url 'index' %}"><button>HOME PAGE</button></a>
+
+
+   
+{% endblock %}

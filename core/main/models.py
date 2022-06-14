@@ -114,3 +114,90 @@ class SubscirbeNow(models.Model):
         return self.about
 
 
+
+
+
+# ------------ Aboutus Page --------------------
+
+class AboutusPage1st(models.Model):
+    abouts = models.TextField('About as-1')
+    img = models.ImageField('BTravel image-1', upload_to='media')
+
+    def __str__(self):
+        return self.abouts
+
+    class Meta:
+        verbose_name = 'AboutAsTeam-1'
+        verbose_name_plural = 'AboutsAsTeam-1'
+
+
+class AboutusPage2th(models.Model):
+    header2 = models.CharField('Abouts header-2', max_length=150)
+    abouts2 = models.TextField('About as-2')
+    img2 = models.ImageField('BTravel image-2', upload_to='media')
+
+    def __str__(self):
+        return self.header2
+
+    class Meta:
+        verbose_name = 'AboutAsTeam-2'
+        verbose_name_plural = 'AboutsAsTeam-2'
+
+
+class AboutusPage3th(models.Model):
+    header3 = models.CharField('Abouts header-3', max_length=150)
+    abouts3 = models.TextField('About as-3')
+    img3 = models.ImageField('BTravel image-3', upload_to='media')
+
+
+    def __str__(self):
+        return self.header3
+
+    class Meta:
+        verbose_name = 'AboutAsTeam-3'
+        verbose_name_plural = 'AboutsAsTeam-3'
+
+
+
+# ------------ Blog Page --------------------
+
+class BlogPage(models.Model):
+    name = models.CharField('turs name', max_length=50)
+    img = models.ImageField('turs image', upload_to='media')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Blog'
+        verbose_name_plural = 'Blogs'
+
+class BlogPageToSupport(models.Model):
+    name = models.CharField('turs name', max_length=50)
+    about = models.CharField('About next travel', max_length=250)
+    img = models.ImageField('turs image', upload_to='media')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'ToSupport'
+        verbose_name_plural = 'ToSupports'
+
+
+
+
+# ------------ LOGIN  Page --------------------
+
+
+class UserContact(models.Model):
+    name = models.CharField('User name', max_length=50)
+    password = models.CharField('User password', max_length=25)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
+
